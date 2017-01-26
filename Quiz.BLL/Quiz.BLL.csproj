@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
@@ -45,6 +46,7 @@
     <Compile Include="DependencyResolver.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="ModelServices\AnswerResultService.cs" />
+    <Compile Include="ModelServices\ITokenService.cs" />
     <Compile Include="ModelServices\QuestionAnswerService.cs" />
     <Compile Include="ModelServices\QuestionService.cs" />
     <Compile Include="ModelServices\QuestionLevelService.cs" />
@@ -53,6 +55,7 @@
     <Compile Include="ModelServices\QuizOptionService.cs" />
     <Compile Include="ModelServices\QuizSessionService.cs" />
     <Compile Include="ModelServices\ResultService.cs" />
+    <Compile Include="ModelServices\TokenService.cs" />
     <Compile Include="ModelServices\UserService.cs" />
     <Compile Include="Models\AnswerResultModel.cs" />
     <Compile Include="Models\CategoryModel.cs" />
@@ -62,6 +65,8 @@
     <Compile Include="Models\QuizOptionModel.cs" />
     <Compile Include="Models\QuizSessionModel.cs" />
     <Compile Include="Models\ResultModel.cs" />
+    <Compile Include="Models\RoleModel.cs" />
+    <Compile Include="Models\TokenModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -75,7 +80,9 @@
       <Name>Quiz.Resolver</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

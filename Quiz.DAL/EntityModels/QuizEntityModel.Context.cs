@@ -25,6 +25,7 @@ namespace Quiz.DAL.EntityModels
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<AnswerResult> AnswerResults { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Question> Questions { get; set; }
         public virtual DbSet<QuestionAnswer> QuestionAnswers { get; set; }
@@ -32,7 +33,8 @@ namespace Quiz.DAL.EntityModels
         public virtual DbSet<QuizOption> QuizOptions { get; set; }
         public virtual DbSet<QuizSession> QuizSessions { get; set; }
         public virtual DbSet<Result> Results { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<AnswerResult> AnswerResults { get; set; }
+        public virtual DbSet<Token> Tokens { get; set; }
     }
 }

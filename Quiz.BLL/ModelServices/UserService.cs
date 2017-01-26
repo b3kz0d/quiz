@@ -4,6 +4,7 @@ using Quiz.DAL.EntityModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
@@ -12,7 +13,8 @@ namespace Quiz.BLL.ModelServices
 {
     public interface IUserService : IModelService<UserModel>
     {
-
+        int Authenticate(string userName, string password);
+        bool ResetPassword(int userId, string newPassword);
     }
 
     public class UserService : IUserService
@@ -40,6 +42,8 @@ namespace Quiz.BLL.ModelServices
         {
             entity.UserName = model.UserName;
             entity.Password = model.Password;
+            entity.Name = model.Name;
+            entity.RoleId = model.RoleId;
             return entity;
         }
 
@@ -50,6 +54,8 @@ namespace Quiz.BLL.ModelServices
                 Id = entity.Id,
                 UserName = entity.UserName,
                 Password = entity.Password,
+                Name = entity.Name,
+                RoleId = entity.RoleId,
             };
             return model;
         }
@@ -122,5 +128,30 @@ namespace Quiz.BLL.ModelServices
             }
             return false;
         }
+
+        public int Authenticate(string userName, string password)
+        {
+            var userEntity= _unitOfWork.GetRepository<User>().GetAll().FirstOrDefault(x=>x.UserName==userName&&x.Password==password);
+            if (userEntity != null)
+                return userEntity.Id;
+            return 0;
+        }
+
+        public bool ResetPassword(int userId, string newPassword)
+        {
+            if (userId > 0)
+            {
+                var entity = _unitOfWork.GetRepository<User>().GetByID(userId);
+                if (entity != null)
+                {
+                    entity.Password = newPassword;
+                    _unitOfWork.GetRepository<User>().Update(entity);
+                    _unitOfWork.Save();
+                    return true;
+                }
+            }
+            return false;
+        }
+
     }
 }

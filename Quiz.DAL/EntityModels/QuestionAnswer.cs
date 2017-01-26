@@ -25,8 +25,8 @@ namespace Quiz.DAL.EntityModels
         public string AnswerContent { get; set; }
         public bool IsCorrect { get; set; }
     
-        public virtual Question Question { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AnswerResult> AnswerResults { get; set; }
+        public virtual Question Question { get; set; }
     }
 }

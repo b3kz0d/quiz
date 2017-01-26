@@ -5,25 +5,29 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="bccac819f497436988ea23ad7ec08557" Name="Diagram1">
-        <EntityTypeShape EntityType="QuizDatabaseModel.Category" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuizDatabaseModel.Question" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuizDatabaseModel.QuestionAnswer" Width="1.5" PointX="5.25" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuizDatabaseModel.QuestionLevel" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuizDatabaseModel.QuizOption" Width="1.5" PointX="3.75" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuizDatabaseModel.QuizSession" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuizDatabaseModel.Result" Width="1.5" PointX="8.25" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuizDatabaseModel.User" Width="1.5" PointX="3.75" PointY="12.5" IsExpanded="true" />
-        <AssociationConnector Association="QuizDatabaseModel.FK_Question_Category" ManuallyRouted="false" />
-        <AssociationConnector Association="QuizDatabaseModel.FK_QuizSession_Category" ManuallyRouted="false" />
-        <AssociationConnector Association="QuizDatabaseModel.FK_Question_QuestionLevel" ManuallyRouted="false" />
-        <AssociationConnector Association="QuizDatabaseModel.FK_QuestionAnswer_Question" ManuallyRouted="false" />
-        <AssociationConnector Association="QuizDatabaseModel.FK_Result_Question" ManuallyRouted="false" />
-        <AssociationConnector Association="QuizDatabaseModel.FK_QuizSession_QuizOption" ManuallyRouted="false" />
-        <AssociationConnector Association="QuizDatabaseModel.FK_QuizSession_User" ManuallyRouted="false" />
-        <AssociationConnector Association="QuizDatabaseModel.FK_Result_QuizSession" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="QuizDatabaseModel.AnswerResult" Width="1.5" PointX="10.5" PointY="6.875" />
+        <EntityTypeShape EntityType="QuizDatabaseModel.AnswerResult" Width="1.5" PointX="10.5" PointY="6.75" />
+        <EntityTypeShape EntityType="QuizDatabaseModel.Category" Width="1.5" PointX="0.75" PointY="5.125" />
+        <EntityTypeShape EntityType="QuizDatabaseModel.Question" Width="1.5" PointX="3" PointY="4.75" />
+        <EntityTypeShape EntityType="QuizDatabaseModel.QuestionAnswer" Width="1.5" PointX="5.25" PointY="8.5" />
+        <EntityTypeShape EntityType="QuizDatabaseModel.QuestionLevel" Width="1.5" PointX="0.75" PointY="2.125" />
+        <EntityTypeShape EntityType="QuizDatabaseModel.QuizOption" Width="1.5" PointX="3.75" PointY="1.375" />
+        <EntityTypeShape EntityType="QuizDatabaseModel.QuizSession" Width="1.5" PointX="6" PointY="4.5" />
+        <EntityTypeShape EntityType="QuizDatabaseModel.Result" Width="1.5" PointX="8.25" PointY="4.75" />
+        <EntityTypeShape EntityType="QuizDatabaseModel.Role" Width="1.5" PointX="1.5" PointY="12.625" />
+        <EntityTypeShape EntityType="QuizDatabaseModel.User" Width="1.5" PointX="3.75" PointY="12.125" />
         <AssociationConnector Association="QuizDatabaseModel.FK_AnswerResult_QuestionAnswer" />
         <AssociationConnector Association="QuizDatabaseModel.FK_AnswerResult_Result" />
+        <AssociationConnector Association="QuizDatabaseModel.FK_Question_Category" />
+        <AssociationConnector Association="QuizDatabaseModel.FK_QuizSession_Category" />
+        <AssociationConnector Association="QuizDatabaseModel.FK_Question_QuestionLevel" />
+        <AssociationConnector Association="QuizDatabaseModel.FK_QuestionAnswer_Question" />
+        <AssociationConnector Association="QuizDatabaseModel.FK_Result_Question" />
+        <AssociationConnector Association="QuizDatabaseModel.FK_QuizSession_QuizOption" />
+        <AssociationConnector Association="QuizDatabaseModel.FK_QuizSession_User" />
+        <AssociationConnector Association="QuizDatabaseModel.FK_Result_QuizSession" />
+        <AssociationConnector Association="QuizDatabaseModel.FK_User_Role" />
+        <EntityTypeShape EntityType="QuizDatabaseModel.Token" Width="1.5" PointX="6" PointY="12.375" />
+        <AssociationConnector Association="QuizDatabaseModel.FK_Token_User" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

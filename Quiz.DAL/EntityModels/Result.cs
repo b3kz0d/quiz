@@ -27,9 +27,9 @@ namespace Quiz.DAL.EntityModels
         public System.DateTime CreatedTime { get; set; }
         public System.DateTime UpdatedTime { get; set; }
     
-        public virtual Question Question { get; set; }
-        public virtual QuizSession QuizSession { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AnswerResult> AnswerResults { get; set; }
+        public virtual Question Question { get; set; }
+        public virtual QuizSession QuizSession { get; set; }
     }
 }

@@ -25,6 +25,7 @@ namespace Quiz.BLL
             registerComponent.RegisterType<IQuizSessionService, QuizSessionService>();
             registerComponent.RegisterType<IResultService, ResultService>();
             registerComponent.RegisterType<IUserService, UserService>();
+            registerComponent.RegisterType<ITokenService, TokenService>();
         }
     }
 }

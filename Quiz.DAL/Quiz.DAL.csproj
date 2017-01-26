@@ -90,6 +90,12 @@
     <Compile Include="EntityModels\Result.cs">
       <DependentUpon>QuizEntityModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="EntityModels\Role.cs">
+      <DependentUpon>QuizEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModels\Token.cs">
+      <DependentUpon>QuizEntityModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="EntityModels\User.cs">
       <DependentUpon>QuizEntityModel.tt</DependentUpon>
     </Compile>
@@ -119,7 +125,6 @@
       <DependentUpon>QuizEntityModel.edmx</DependentUpon>
       <LastGenOutput>QuizEntityModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="EntityModels\QuizEntityModel.edmx.sql" />
     <Content Include="EntityModels\QuizEntityModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>QuizEntityModel.edmx</DependentUpon>
