@@ -12,6 +12,28 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quiz.BLL", "Quiz.BLL\Quiz.B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quiz.Resolver", "Quiz.Resolver\Quiz.Resolver.csproj", "{6C47CCFA-3230-48DB-B1A5-F74565863674}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Quiz", "Quiz\", "{685C990A-6D02-4534-9F95-4BE3070E4E58}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_21361"
+		Debug.AspNetCompiler.PhysicalPath = "Quiz\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_21361\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_21361"
+		Release.AspNetCompiler.PhysicalPath = "Quiz\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_21361\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "21361"
+		SlnRelativePath = "Quiz\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quiz.API", "Quiz.API\Quiz.API.csproj", "{9F0CB062-8ECD-41B7-AD02-5291FCB58664}"
 EndProject
 Global
@@ -32,6 +54,8 @@ Global
 		{6C47CCFA-3230-48DB-B1A5-F74565863674}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C47CCFA-3230-48DB-B1A5-F74565863674}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C47CCFA-3230-48DB-B1A5-F74565863674}.Release|Any CPU.Build.0 = Release|Any CPU
+		{685C990A-6D02-4534-9F95-4BE3070E4E58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{685C990A-6D02-4534-9F95-4BE3070E4E58}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{9F0CB062-8ECD-41B7-AD02-5291FCB58664}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9F0CB062-8ECD-41B7-AD02-5291FCB58664}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F0CB062-8ECD-41B7-AD02-5291FCB58664}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,5 +63,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35
 	EndGlobalSection
 EndGlobal
