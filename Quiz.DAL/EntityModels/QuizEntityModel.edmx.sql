@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 01/11/2017 21:07:00
--- Generated from EDMX file: D:\Projects\GitProject\quiz\Quiz.DAL\EntityModels\QuizEntityModel.edmx
+-- Date Created: 01/29/2017 19:58:26
+-- Generated from EDMX file: D:\Projects\GitProject\Quiz\Quiz.DAL\EntityModels\QuizEntityModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -47,6 +47,12 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_Result_QuizSession]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Result] DROP CONSTRAINT [FK_Result_QuizSession];
 GO
+IF OBJECT_ID(N'[dbo].[FK_Token_User]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Token] DROP CONSTRAINT [FK_Token_User];
+GO
+IF OBJECT_ID(N'[dbo].[FK_User_Role]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[User] DROP CONSTRAINT [FK_User_Role];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -76,6 +82,12 @@ GO
 IF OBJECT_ID(N'[dbo].[Result]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Result];
 GO
+IF OBJECT_ID(N'[dbo].[Role]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Role];
+GO
+IF OBJECT_ID(N'[dbo].[Token]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Token];
+GO
 IF OBJECT_ID(N'[dbo].[User]', 'U') IS NOT NULL
     DROP TABLE [dbo].[User];
 GO
@@ -83,6 +95,14 @@ GO
 -- --------------------------------------------------
 -- Creating all tables
 -- --------------------------------------------------
+
+-- Creating table 'AnswerResults'
+CREATE TABLE [dbo].[AnswerResults] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [ResultId] int  NOT NULL,
+    [QuestionAnswerId] int  NOT NULL
+);
+GO
 
 -- Creating table 'Categories'
 CREATE TABLE [dbo].[Categories] (
@@ -151,25 +171,42 @@ CREATE TABLE [dbo].[Results] (
 );
 GO
 
--- Creating table 'Users'
-CREATE TABLE [dbo].[Users] (
+-- Creating table 'Roles'
+CREATE TABLE [dbo].[Roles] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [UserName] nvarchar(20)  NOT NULL,
-    [Password] nvarchar(20)  NOT NULL
+    [Name] nvarchar(35)  NOT NULL
 );
 GO
 
--- Creating table 'AnswerResults'
-CREATE TABLE [dbo].[AnswerResults] (
-    [Id] int IDENTITY(1,1) NOT NULL,
-    [ResultId] int  NOT NULL,
-    [QuestionAnswerId] int  NOT NULL
+-- Creating table 'Users'
+CREATE TABLE [dbo].[Users] (
+    [Id] int  NOT NULL,
+    [RoleId] int  NOT NULL,
+    [UserName] nvarchar(20)  NOT NULL,
+    [Password] nvarchar(20)  NOT NULL,
+    [Name] nvarchar(50)  NULL
+);
+GO
+
+-- Creating table 'Tokens'
+CREATE TABLE [dbo].[Tokens] (
+    [AuthToken] nvarchar(50)  NOT NULL,
+    [UserId] int  NOT NULL,
+    [IssuedOn] datetime  NOT NULL,
+    [ExpiresOn] datetime  NOT NULL,
+    [LastLogin] datetime  NOT NULL
 );
 GO
 
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
+
+-- Creating primary key on [Id] in table 'AnswerResults'
+ALTER TABLE [dbo].[AnswerResults]
+ADD CONSTRAINT [PK_AnswerResults]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
 
 -- Creating primary key on [Id] in table 'Categories'
 ALTER TABLE [dbo].[Categories]
@@ -213,21 +250,57 @@ ADD CONSTRAINT [PK_Results]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
+-- Creating primary key on [Id] in table 'Roles'
+ALTER TABLE [dbo].[Roles]
+ADD CONSTRAINT [PK_Roles]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
 -- Creating primary key on [Id] in table 'Users'
 ALTER TABLE [dbo].[Users]
 ADD CONSTRAINT [PK_Users]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'AnswerResults'
-ALTER TABLE [dbo].[AnswerResults]
-ADD CONSTRAINT [PK_AnswerResults]
-    PRIMARY KEY CLUSTERED ([Id] ASC);
+-- Creating primary key on [AuthToken] in table 'Tokens'
+ALTER TABLE [dbo].[Tokens]
+ADD CONSTRAINT [PK_Tokens]
+    PRIMARY KEY CLUSTERED ([AuthToken] ASC);
 GO
 
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
+
+-- Creating foreign key on [QuestionAnswerId] in table 'AnswerResults'
+ALTER TABLE [dbo].[AnswerResults]
+ADD CONSTRAINT [FK_AnswerResult_QuestionAnswer]
+    FOREIGN KEY ([QuestionAnswerId])
+    REFERENCES [dbo].[QuestionAnswers]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_AnswerResult_QuestionAnswer'
+CREATE INDEX [IX_FK_AnswerResult_QuestionAnswer]
+ON [dbo].[AnswerResults]
+    ([QuestionAnswerId]);
+GO
+
+-- Creating foreign key on [ResultId] in table 'AnswerResults'
+ALTER TABLE [dbo].[AnswerResults]
+ADD CONSTRAINT [FK_AnswerResult_Result]
+    FOREIGN KEY ([ResultId])
+    REFERENCES [dbo].[Results]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_AnswerResult_Result'
+CREATE INDEX [IX_FK_AnswerResult_Result]
+ON [dbo].[AnswerResults]
+    ([ResultId]);
+GO
 
 -- Creating foreign key on [CategoryId] in table 'Questions'
 ALTER TABLE [dbo].[Questions]
@@ -349,34 +422,34 @@ ON [dbo].[Results]
     ([QuizSessionId]);
 GO
 
--- Creating foreign key on [QuestionAnswerId] in table 'AnswerResults'
-ALTER TABLE [dbo].[AnswerResults]
-ADD CONSTRAINT [FK_AnswerResult_QuestionAnswer]
-    FOREIGN KEY ([QuestionAnswerId])
-    REFERENCES [dbo].[QuestionAnswers]
+-- Creating foreign key on [RoleId] in table 'Users'
+ALTER TABLE [dbo].[Users]
+ADD CONSTRAINT [FK_User_Role]
+    FOREIGN KEY ([RoleId])
+    REFERENCES [dbo].[Roles]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_AnswerResult_QuestionAnswer'
-CREATE INDEX [IX_FK_AnswerResult_QuestionAnswer]
-ON [dbo].[AnswerResults]
-    ([QuestionAnswerId]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_User_Role'
+CREATE INDEX [IX_FK_User_Role]
+ON [dbo].[Users]
+    ([RoleId]);
 GO
 
--- Creating foreign key on [ResultId] in table 'AnswerResults'
-ALTER TABLE [dbo].[AnswerResults]
-ADD CONSTRAINT [FK_AnswerResult_Result]
-    FOREIGN KEY ([ResultId])
-    REFERENCES [dbo].[Results]
+-- Creating foreign key on [UserId] in table 'Tokens'
+ALTER TABLE [dbo].[Tokens]
+ADD CONSTRAINT [FK_Token_User]
+    FOREIGN KEY ([UserId])
+    REFERENCES [dbo].[Users]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
--- Creating non-clustered index for FOREIGN KEY 'FK_AnswerResult_Result'
-CREATE INDEX [IX_FK_AnswerResult_Result]
-ON [dbo].[AnswerResults]
-    ([ResultId]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_Token_User'
+CREATE INDEX [IX_FK_Token_User]
+ON [dbo].[Tokens]
+    ([UserId]);
 GO
 
 -- --------------------------------------------------

@@ -1,4 +1,5 @@
 ﻿using Quiz.API.ActionFilters;
+using Quiz.BLL.Models;
 using Quiz.BLL.ModelServices;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,19 @@ namespace Quiz.API.Controllers
         }
 
         #endregion
+
+
+        [HttpPost]
+        [Route("Register")]
+        public HttpResponseMessage Register(UserModel userModel)
+        {
+            var id = _userService.Create(userModel);
+
+            if (id > 0)
+                return Request.CreateResponse(HttpStatusCode.OK,"Logout");
+            return Request.CreateErrorResponse(HttpStatusCode.NotAcceptable, "Not Acceptable");
+
+        }
 
         [HttpGet]
         [Route("Details/{id?}")]
