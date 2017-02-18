@@ -125,6 +125,7 @@
       <DependentUpon>QuizEntityModel.edmx</DependentUpon>
       <LastGenOutput>QuizEntityModel.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="EntityModels\QuizEntityModel.edmx.sql" />
     <Content Include="EntityModels\QuizEntityModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>QuizEntityModel.edmx</DependentUpon>

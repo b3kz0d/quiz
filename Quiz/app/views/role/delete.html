@@ -1,0 +1,15 @@
+﻿<form ng-controller="roleDeleteCtrl">
+    <h3>Are you sure to delete?</h3>
+
+    <table class="table table-stripped">
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+        </tr>
+        <tr>
+            <td>{{Role.Id}}</td>
+            <td>{{Role.Name}}</td>
+        </tr>
+    </table>
+    <button type="submit" ng-click="deleteRole()">Delete</button>
+</form>

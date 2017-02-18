@@ -1,0 +1,26 @@
+﻿
+<div ng-controller="roleCtrl">
+    <div>
+        <a href="#/new">Yangi</a>
+
+        <table class="table table-stripped" ng-cloak border="1">
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+
+            </tr>
+            <tr ng-repeat="r in roles">
+                <td>{{r.Id}}</td>
+                <td>{{r.Name}}</td>
+
+                <td>
+                    <a href="#/edit/{{r.Id}}">Edit</a>
+                </td>
+                <td>
+                    <a href="#/delete/{{r.Id}}">Delete</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div> 

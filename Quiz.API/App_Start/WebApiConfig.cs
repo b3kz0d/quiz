@@ -21,9 +21,24 @@ namespace Quiz.API
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
+                routeTemplate: "api/{controller}/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            //config.MapHttpAttributeRoutes();
+
+            //// Route to index.html
+            //config.Routes.MapHttpRoute(
+            //    name: "Index",
+            //    routeTemplate: "{id}.html",
+            //    defaults: new { id = "index" });
+
+            //// Default route
+            //config.Routes.MapHttpRoute(
+            //    name: "DefaultApi",
+            //    routeTemplate: "api/{controller}/{id}",
+            //    defaults: new { id = RouteParameter.Optional }
+            //);
         }
     }
 }

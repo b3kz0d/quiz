@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Web;
 using System.Web.Http;
@@ -34,7 +35,7 @@ namespace Quiz.API
             formatters.XmlFormatter.SupportedMediaTypes.Remove(appXmlType);
 
 
-            //formatters.Add(new JsonMediaTypeFormatter());
+            formatters.Add(new JsonMediaTypeFormatter()); //changed
 
             formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/plain"));
 

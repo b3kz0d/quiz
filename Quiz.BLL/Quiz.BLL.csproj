@@ -55,6 +55,7 @@
     <Compile Include="ModelServices\QuizOptionService.cs" />
     <Compile Include="ModelServices\QuizSessionService.cs" />
     <Compile Include="ModelServices\ResultService.cs" />
+    <Compile Include="ModelServices\RoleService.cs" />
     <Compile Include="ModelServices\TokenService.cs" />
     <Compile Include="ModelServices\UserService.cs" />
     <Compile Include="Models\AnswerResultModel.cs" />
