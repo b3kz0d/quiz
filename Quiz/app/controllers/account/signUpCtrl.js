@@ -8,19 +8,27 @@
     app.controller('signupController', signupCtrl);
 
     //injections
-    signupCtrl.$inject = ['$rootScope', '$scope', 'accountService'];
+    signupCtrl.$inject = ['$rootScope', '$scope', 'accountService','roleService'];
 
-    function signupCtrl($rootScope, $scope, accountService) {
+    function signupCtrl($rootScope, $scope, accountService, roleService) {
 
         
-
         $scope.registrationData = {
             RoleId: "",
-            Name:"",
+            Name: "",
             Username: "",
             Password: "",
-              
+
         };
+
+        function getRoles() {
+            return roleService.getAllRoles(function (response) {
+
+                $scope.roles = response;
+
+            });
+        };
+        $scope.getRoles = getRoles;
                 
         $scope.signup = signup;
 

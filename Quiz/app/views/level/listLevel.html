@@ -1,0 +1,31 @@
+﻿
+<div>
+    <div>
+        <a href="#/new/level">Yangi level</a>
+
+        <table class="table table-stripped" ng-cloak border="1">
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Score</td>
+                <td>Description</td>
+                <td>Action</td>
+
+            </tr>
+            <tr ng-repeat="l in levels">
+                <td>{{l.Id}}</td>
+                <td>{{l.Name}}</td>
+                <td>{{l.Score}}</td>
+                <td>{{l.Description}}</td>
+
+                <td>
+                    <a href="#/level/edit/{{l.Id}}">Edit</a>
+                </td>
+                <td>
+                    <a href="#/level/delete/{{l.Id}}">Delete</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div> 

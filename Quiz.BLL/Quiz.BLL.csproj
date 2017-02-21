@@ -63,6 +63,7 @@
     <Compile Include="Models\QuestionAnswerModel.cs" />
     <Compile Include="Models\QuestionLevelModel.cs" />
     <Compile Include="Models\QuestionModel.cs" />
+    <Compile Include="Models\QuestionServiceModel.cs" />
     <Compile Include="Models\QuizOptionModel.cs" />
     <Compile Include="Models\QuizSessionModel.cs" />
     <Compile Include="Models\ResultModel.cs" />

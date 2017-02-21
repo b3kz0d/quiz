@@ -11,7 +11,7 @@ using System.Web.Http;
 
 namespace Quiz.API.Controllers
 {
-    [AuthorizationRequired]
+   /// [AuthorizationRequired]
     public class RoleController : ApiController
     {
         private readonly IRoleService _RoleService;
@@ -40,7 +40,7 @@ namespace Quiz.API.Controllers
                 return Request.CreateResponse(HttpStatusCode.OK, model);
             return Request.CreateErrorResponse(HttpStatusCode.NoContent, "Role not found");
         }
-
+        [AuthorizationRequired]
         [HttpPost]
         [Route("Role/Create")]
         public HttpResponseMessage Post([FromBody]RoleModel model)
@@ -51,7 +51,7 @@ namespace Quiz.API.Controllers
                 return Request.CreateResponse(HttpStatusCode.OK);
             return Request.CreateErrorResponse(HttpStatusCode.NotAcceptable, "Not Acceptable");
         }
-
+        [AuthorizationRequired]
         [HttpPut]
         [Route("Role/Update/{id?}")]
         public HttpResponseMessage Put(int id, [FromBody]RoleModel model)
@@ -61,6 +61,7 @@ namespace Quiz.API.Controllers
             return Request.CreateErrorResponse(HttpStatusCode.NotModified, "Not Modified");
         }
 
+        [AuthorizationRequired]
         [HttpDelete]
         [Route("Role/Delete/{id?}")]
         public HttpResponseMessage Delete(int id)

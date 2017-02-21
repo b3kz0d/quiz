@@ -1,0 +1,17 @@
+﻿<form ng-controller="categoryDeleteCtrl">
+    <h3>Are you sure to delete?</h3>
+
+    <table class="table table-stripped">
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Description</td>
+        </tr>
+        <tr>
+            <td>{{Category.Id}}</td>
+            <td>{{Category.Name}}</td>
+            <td>{{Category.Description}}</td>
+        </tr>
+    </table>
+    <button type="submit" ng-click="deleteCategory()">Delete</button>
+</form>

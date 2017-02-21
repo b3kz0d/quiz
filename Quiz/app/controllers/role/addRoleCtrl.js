@@ -13,9 +13,8 @@
             Name: ""
         };
 
-        
         $scope.add = add;
-         function add() {
+        function add() {
             roleService.addRole($scope.Role).then(function (response) {
                 $scope.Role = null;
 
@@ -25,16 +24,5 @@
             });
         }
     };
-
-    //app.controller('detailsCtrl', detailsCtrl);
-    //detailsCtrl.$inject = ['$scope', '$http', 'roleService', '$routeParams'];
-
-    //function detailsCtrl($scope, $http, roleService, $routeParams) {
-    //    var id = $routeParams.id;
-    //    roleService.details(id).then(function (data) {
-    //        $scope.roleDetails = data;
-    //    })
-    //};
-
 
 })();

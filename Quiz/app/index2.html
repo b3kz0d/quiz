@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html ng-app="QuizApp">
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <base href="/app/index2.html" />
+</head>
+<body>
+    <ul>
+        <li>
+            <a href="#/categories">Categories </a>
+
+        </li>
+        <li>
+
+            <a href="#/roles">Roles </a>
+        </li>
+        <li>
+
+            <a href="#/levels">Levels </a>
+        </li>
+
+    </ul>
+    <div ng-view></div>
+
+    <script src="scripts/jquery-1.10.2.js"></script>
+    <script src="scripts/jquery.base64.js"></script>
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-route.js"></script>
+
+    <script src="scripts/angular-cookies.js"></script>
+    <!--<script src="scripts/jquery-ui-1.9.2.js"></script>-->
+    <script src="routes.js"></script>
+
+    <!--   services  -->
+
+
+    <script src="services/authInterceptorService.js"></script>
+    <script src="services/categoryService.js"></script>
+    <script src="services/roleService.js"></script>
+    <script src="services/accountService.js"></script>
+    <script src="services/levelService.js"></script>
+
+    <!--   controllers  -->
+    <!-- category Ctrl  -->
+
+    <script src="controllers/category/categoryListCtrl.js"></script>
+    <script src="controllers/category/addCategoryCtrl.js"></script>
+    <script src="controllers/category/editCategoryCtrl.js"></script>
+    <script src="controllers/category/removeCategoryCtrl.js"></script>
+
+    <!-- account Ctrl  -->
+    <script src="controllers/account/signUpCtrl.js"></script>
+    <script src="controllers/account/loginCtrl.js"></script>
+
+    <!--  role Ctrl  -->
+    <script src="controllers/role/roleEditCtrl.js"></script>
+    <script src="controllers/role/roleCtrl.js"></script>
+    <script src="controllers/role/removeCtrl.js"></script>
+    <script src="controllers/role/addRoleCtrl.js"></script>
+
+    <!--  level Ctrl-->
+    <script src="controllers/level/addLevelCtrl.js"></script>
+    <script src="controllers/level/listLevelCtrl.js"></script>
+    <script src="controllers/level/editLevelCtrl.js"></script>
+    <script src="controllers/level/removeLevelCtrl.js"></script>
+</body>
+</html>
