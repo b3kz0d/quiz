@@ -5,22 +5,44 @@
 
     app.controller('addQuestionCtrl', addQuestionCtrl);
 
-    addQuestionCtrl.$inject = ['$http', '$routeParams', '$scope', 'levelService'];
-    function addQuestionCtrl($http, $routeParams, $scope, levelService) {
+    addQuestionCtrl.$inject = ['$http', '$routeParams', '$scope', 'questionService','levelService', 'categoryService'];
+    function addQuestionCtrl($http, $routeParams, $scope, questionService, levelService, categoryService) {
 
         $scope.Question = {
             Id: "",
             QuestionContent: "",
             CategoryId: "",
             QuestionLevelId: "",
-            Answers:[]
+            Answers: [{
+                AnswerContent: "",
+                IsCorrect:"",
+            }]
         };
+
+        (function () {
+            getLevel();
+
+            getCategory();
+        })()
+
+
+        function getLevel() {
+            levelService.getAllLevels(function (response) {
+                $scope.levels = response;
+            })
+        }
+
+        function getCategory() {
+            categoryService.getAllCategories(function (response) {
+                $scope.categories = response;
+            })
+        }
 
         $scope.add = add;
         function add() {
-            levelService.addLevel($scope.Question).then(function (response) {
-                $scope.Level = null;
-                $location.path('/levels');
+            questionService.addQuestion($scope.Question).then(function (response) {
+               // $scope.Level = null;
+                // $location.path('/levels');
             }, function (response) {
 
                 $scope.error = response;

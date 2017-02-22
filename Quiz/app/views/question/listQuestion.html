@@ -1,0 +1,28 @@
+﻿
+<div>
+    <div>
+        <a href="#/new/question">Yangi level</a>
+
+        <table class="table table-stripped" ng-cloak border="1">
+            <tr>
+                <td>Id</td>
+                <td>Questions</td>
+                
+
+            </tr>
+            <tr ng-repeat="q in questions">
+                <td>{{q.Id}}</td>
+                <td>{{q.QuestionContent}}</td>
+                
+               
+                <td>
+                    <a href="#/question/edit/{{q.Id}}">Edit</a>
+                </td>
+                <td>
+                    <a href="#/question/delete/{{q.Id}}">Delete</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div> 

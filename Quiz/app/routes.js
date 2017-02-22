@@ -75,7 +75,25 @@ app.config(['$routeProvider', function ($routeProvider) {
         controller: 'levelEditCtrl',
 
     })
+     .when('/questions', {             //question  routes
+         templateUrl: 'views/question/listQuestion.html',
+         controller: 'questionListCtrl',
+     })
+      .when('/new/question', {             //  questionEditCtrl
 
+          templateUrl: 'views/question/addQuestion.html',
+          controller: 'addQuestionCtrl'
+      })
+      .when('/question/delete/:id', {
+          templateUrl: 'views/level/removeLevel.html',
+          controller: 'levelDeleteCtrl',
+
+      })
+      .when('/question/edit/:id', {
+          templateUrl: 'views/question/editQuestion.html',
+          controller: 'questionEditCtrl',
+
+      })
     .when('/401', {
         templateUrl: 'views/401.html',
         controller: 'loginCtrl',

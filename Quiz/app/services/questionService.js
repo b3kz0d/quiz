@@ -3,20 +3,18 @@
     var app = angular.module('QuizApp');
     app.factory('questionService', questionService);
 
-    questionService.$inject = ['$http'];
-    function questionService($http) {
+    questionService.$inject = ['$http', 'levelService', 'categoryService'];
+    function questionService($http, levelService, categoryService) {
         var service = {};
-        service.getAllLevels = getAllLevels;
+        service.getAllQuestions = getAllQuestions;
         service.addQuestion = addQuestion;
         service.edit = edit;
         service.deleteLevel = deleteLevel;
 
         return service;
 
-
-
-        function getAllLevels(response) {
-            return $http.get('http://localhost:11117/Levels').success(response);
+        function getAllQuestions(response) {
+            return $http.get('http://localhost:11117/Questions').success(response);
         };
 
         function addQuestion(response) {
@@ -33,14 +31,14 @@
             });
         };
 
-        function edit(id, levelData) {
-            return $http.put('http://localhost:11117/Level/Update/' + id, levelData).then(function (response) {
+        function edit(id, questionData) {
+            return $http.put('http://localhost:11117/Question/Update/' + id, questionData).then(function (response) {
                 return response;
             });
         };
 
         function deleteLevel(id) {
-            return $http.delete('http://localhost:11117/Level/Delete/' + id);
+            return $http.delete('http://localhost:11117/Question/Delete/' + id);
         };
     }
 })();

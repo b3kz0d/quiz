@@ -1,0 +1,52 @@
+﻿<form class="form-control" >
+    <div class="form-control col-md-5">
+        <input type="text"  ng-model="Question.QuestionContent" placeholder="Question Content ..."/>
+    </div>
+    <div>
+        <select ng-model="Question.CategoryId">
+            <option value="">-------- Choose Category --------</option>
+            <option ng-repeat="c in categories" value="{{c.Id}}">
+                {{c.Name }}
+            </option>
+        </select>
+    </div>
+    <div>
+        <select ng-model="Question.QuestionLevelId">
+            <option value="">-------- Choose Level --------</option>
+            <option ng-repeat="l in levels" value="{{l.Id}}" ng-selected="l.Id===Question.QuestionlLevelId">
+                {{l.Name }}
+            </option>
+        </select>
+    </div>
+    <!--<div>
+        <input type="number" ng-model="Question.Answers[0].QuestionId" placeholder="test qustionId " />
+    </div>-->
+    <div>
+        <input type="text"  ng-model="Question.Answers[0].AnswerContent" placeholder="Answer"/>
+    </div>
+    <div>
+        <input type="checkbox"  ng-model="Question.Answers[0].IsCorrect"/>
+    </div>
+    <div>
+        <input type="text" ng-model="Question.Answers[1].AnswerContent" placeholder="Answer2" />
+    </div>
+    <div>
+        <input type="checkbox" ng-model="Question.Answers[1].IsCorrect" />
+    </div>
+    <div>
+        <input type="text" ng-model="Question.Answers[2].AnswerContent" placeholder="Answer3" />
+    </div>
+    <div>
+        <input type="checkbox" ng-model="Question.Answers[2].IsCorrect" />
+    </div>
+    <div>
+        <input type="text" ng-model="Question.Answers[3].AnswerContent" placeholder="Answer4" />
+    </div>
+    <div>
+        <input type="checkbox" ng-model="Question.Answers[3].IsCorrect" />
+    </div>
+
+    <div>
+        <input type="submit"  ng-click="add()" value="Add Question"/>
+    </div>
+</form>
