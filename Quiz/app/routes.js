@@ -94,6 +94,26 @@ app.config(['$routeProvider', function ($routeProvider) {
           controller: 'questionEditCtrl',
 
       })
+     .when('/options', {             //quizoption  routes
+         templateUrl: 'views/question/listOption.html',
+         controller: 'optionListCtrl',
+     })
+      .when('/new/option', {             //  questionEdit
+
+          templateUrl: 'views/option/addOption.html',
+          controller: 'addOptionCtrl'
+      })
+      .when('/option/delete/:id', {
+          templateUrl: 'views/option/removeOption.html',
+          controller: 'optionDeleteCtrl',
+
+      })
+      .when('/option/edit/:id', {
+          templateUrl: 'views/option/editOption.html',
+          controller: 'optionEditCtrl',
+
+      })
+
     .when('/401', {
         templateUrl: 'views/401.html',
         controller: 'loginCtrl',
