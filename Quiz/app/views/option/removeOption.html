@@ -1,0 +1,19 @@
+﻿<form>
+    <h3>Are you sure to delete?</h3>
+
+    <table class="table table-stripped">
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Amount</td>
+            <td>Required Percentage</td>
+        </tr>
+        <tr>
+            <td>{{Option.Id}}</td>
+            <td>{{Option.Name}}</td>
+            <td>{{Option.Amount}}</td>
+            <td>{{Option.RequiredPercentage}}</td>
+        </tr>
+    </table>
+    <button type="submit" ng-click="deleteOption()">Delete</button>
+</form>

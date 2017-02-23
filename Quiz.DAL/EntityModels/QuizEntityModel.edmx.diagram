@@ -10,7 +10,7 @@
         <EntityTypeShape EntityType="QuizDatabaseModel.Question" Width="1.5" PointX="3" PointY="4.75" />
         <EntityTypeShape EntityType="QuizDatabaseModel.QuestionAnswer" Width="1.5" PointX="5.25" PointY="8.5" />
         <EntityTypeShape EntityType="QuizDatabaseModel.QuestionLevel" Width="1.5" PointX="0.75" PointY="2.125" />
-        <EntityTypeShape EntityType="QuizDatabaseModel.QuizOption" Width="1.5" PointX="3.75" PointY="1.375" />
+        <EntityTypeShape EntityType="QuizDatabaseModel.QuizOption" Width="1.75" PointX="5.5" PointY="1.625" />
         <EntityTypeShape EntityType="QuizDatabaseModel.QuizSession" Width="1.5" PointX="6" PointY="4.5" />
         <EntityTypeShape EntityType="QuizDatabaseModel.Result" Width="1.5" PointX="8.25" PointY="4.75" />
         <EntityTypeShape EntityType="QuizDatabaseModel.Role" Width="1.5" PointX="1.5" PointY="12.625" />

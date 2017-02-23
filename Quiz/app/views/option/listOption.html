@@ -1,0 +1,31 @@
+﻿
+<div>
+    <div>
+        <a href="#/new/level">New option</a>
+
+        <table class="table table-stripped" ng-cloak border="1">
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Amount</td>
+                <td>Required Percentage</td>
+                <td>Action</td>
+
+            </tr>
+            <tr ng-repeat="o in options">
+                <td>{{o.Id}}</td>
+                <td>{{o.Name}}</td>
+                <td>{{o.Amount}}</td>
+                <td>{{o.RequiredPercentage}}</td>
+
+                <td>
+                    <a href="#/option/edit/{{o.Id}}">Edit</a>
+                </td>
+                <td>
+                    <a href="#/option/delete/{{o.Id}}">Delete</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div> 

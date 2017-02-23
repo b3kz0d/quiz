@@ -9,7 +9,7 @@
         service.getAllQuestions = getAllQuestions;
         service.addQuestion = addQuestion;
         service.edit = edit;
-        service.deleteLevel = deleteLevel;
+        service.deleteQuestion = deleteQuestion;
 
         return service;
 
@@ -37,7 +37,7 @@
             });
         };
 
-        function deleteLevel(id) {
+        function deleteQuestion(id) {
             return $http.delete('http://localhost:11117/Question/Delete/' + id);
         };
     }

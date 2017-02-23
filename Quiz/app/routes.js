@@ -85,8 +85,8 @@ app.config(['$routeProvider', function ($routeProvider) {
           controller: 'addQuestionCtrl'
       })
       .when('/question/delete/:id', {
-          templateUrl: 'views/level/removeLevel.html',
-          controller: 'levelDeleteCtrl',
+          templateUrl: 'views/question/removQuestion.html',
+          controller: 'questionDeleteCtrl',
 
       })
       .when('/question/edit/:id', {
